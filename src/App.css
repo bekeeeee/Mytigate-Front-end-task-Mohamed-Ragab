@@ -1,11 +1,9 @@
-
-
 .sidebar {
   grid-area: sidebar;
   background-color: rgb(8, 44, 73);
 }
 
-.sidebar span{
+.sidebar span {
   margin-top: 45px;
 }
 
@@ -26,7 +24,7 @@
 
 .header-col2 {
   grid-area: header-col2;
-  margin-top: 25px;
+  margin-top: 35px;
 }
 
 .content {
@@ -44,6 +42,7 @@
 .content-page-name {
   grid-area: content-page-name;
   margin-left: 15px;
+  text-transform: capitalize;
 }
 .content-search {
   grid-area: content-search;
@@ -156,16 +155,28 @@
 .footer-col1 {
   grid-area: footer-col1;
   margin-left: 15px;
+  margin-top: 30px;
+  color: black;
 }
 
+.footer-col1 li {
+  margin-top: 3px;
+}
 .footer-col2 {
   grid-area: footer-col2;
+  color: black;
+  float: right;
+  margin-top: 15px;
+}
+
+.footer-col2 li {
+  margin-top: 3px;
 }
 
 .container {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
-  grid-template-rows: 0.4fr 2fr 0.4fr;
+  grid-template-rows: 0.2fr 2fr 0.4fr;
   grid-auto-columns: 1fr;
   gap: 2px 0px;
   grid-auto-flow: row;
@@ -209,7 +220,6 @@ span {
   color: white;
   /* font-size: 85px; */
   margin-bottom: 55px;
-
 }
 
 .notactive {
@@ -246,4 +256,22 @@ input[type="text"] {
   width: 800px;
   height: 100px;
   margin-top: 10px;
+}
+
+.recommendationPar {
+  font-size: 24px;
+  color: #082c25;
+  font-weight: bold;
+}
+.error {
+  color: red;
+}
+A:link {
+  text-decoration: none;
+}
+A:visited {
+  text-decoration: none;
+}
+A:active {
+  text-decoration: none;
 }

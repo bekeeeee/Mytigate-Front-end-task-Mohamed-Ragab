@@ -1,4 +1,7 @@
 import React from "react";
+/*
+just render the company logo
+*/
 const Home = () => {
   return (
     <div>

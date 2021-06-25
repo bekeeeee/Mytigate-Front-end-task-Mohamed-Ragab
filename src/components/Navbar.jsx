@@ -16,81 +16,45 @@ const NavBar = ({ children }) => {
 
   const { pathname } = location;
   const currentLocation = pathname.split("/")[1];
-
-  console.log("pathname", currentLocation);
+  const renderIcon = (path, size, color, span, to) => {
+    //render Icon
+    return (
+      <Link to={to ? `./${to}` : "./"}>
+        <Icon className="icon" path={path} size={size} color={color}></Icon>
+        <span className={currentLocation === `${to}` ? "active" : "notactive"}>
+          {span}
+        </span>
+      </Link>
+    );
+  };
 
   return (
     <div className="container">
       <div className="header">
         <div className="header-col2">
-          <Link>
-            <Icon
-              className="icon"
-              path={mdiBell}
-              size={1}
-              color="#082c49"
-            ></Icon>
-          </Link>
-          <Link>
-            <Icon
-              className="icon"
-              path={mdiAccount}
-              size={1}
-              color="#082c49"
-            ></Icon>
-            <span style={{ color: "#082c49" }}>M.Ragab9521@gmial.com</span>
-          </Link>
+          {renderIcon(mdiBell, 1, "#082c49")}
+          {renderIcon(mdiAccount, 1, "#082c49", "M.Ragab9521@gmial.com")}
         </div>
       </div>
+
       <div className="sidebar">
         <img src="./Logo-MYTIGATE@2x.png" alt="" />
-        <Link to="/Home">
-          <Icon className="icon" path={mdiHome} size={1} color="white"></Icon>
-          <span className={currentLocation === "Home" ? "active" : "notactive"}>
-            Home
-          </span>
-        </Link>
-        <Link to="/Dashboard">
-          <Icon
-            className="icon"
-            path={mdiTabletDashboard}
-            size={1}
-            color="white"
-          />
-          <span
-            className={currentLocation === "Dashboard" ? "active" : "notactive"}
-          >
-            Dashboard
-          </span>
-        </Link>
+        {renderIcon(mdiHome, 1, "white", "Home", "home")}
+        {renderIcon(mdiTabletDashboard, 1, "white", "Dashboard", "dashboard")}
       </div>
+
       <div className="footer">
-        <div
-          className="footer-col1"
-          style={{ color: "black", marginTop: "45px" }}
-        >
+        <div className="footer-col1">
           <li>Version:1.0.0</li>
           <li>
             <a href="https://mytigate.de/">support@mytigate.com</a>
           </li>
+
           <li>Technical Documentation</li>
         </div>
-        <div
-          className="footer-col2"
-          style={{
-            color: "black",
-            float: "right",
-            marginTop: "25px",
-            marginLeft: "35",
-          }}
-        >
-          <Icon
-            className="icon"
-            path={mdiCopyright}
-            size={0.8}
-            color="#082c49"
-          ></Icon>
-          <span>Copyright 2019-2021</span>
+
+        <div className="footer-col2">
+          {renderIcon(mdiCopyright, 0.8, "#082c49", "Copyright 2019-2021")}
           <li>
             <a href="https://mytigate.de/">MYTIGATE GmbH</a>
           </li>
@@ -100,7 +64,6 @@ const NavBar = ({ children }) => {
 
       <div className="content">
         <div className="content-page-name">{currentLocation}</div>
-
         {children}
       </div>
     </div>

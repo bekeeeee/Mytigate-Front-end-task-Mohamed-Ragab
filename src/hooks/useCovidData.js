@@ -1,38 +1,38 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { covidApiUrl ,vaccApiUrl} from "../config/keys";
+import { covidApiUrl, vaccApiUrl } from "../config/keys";
+
 const useCovidData = () => {
-  const [covidData, setCovidData] = useState({});
-  const [vaccRatio, setVaccRatio] = useState(0);
+  const [covidData, setCovidData] = useState({}); // state for covid data
+  const [vaccRatio, setVaccRatio] = useState(0); // state for vacc data
 
   const getData = async (country) => {
     try {
-      const { data } = await axios.get(`${covidApiUrl}/${country}`);
+      const { data } = await axios.get(`${covidApiUrl}/${country}`); // get all covid details about country
 
       const { data: vaccData } = await axios.get(
         `${vaccApiUrl}/${country}?lastdays=1&fullData=true`
       );
 
-      setCovidData(data);
-      setVaccRatio(vaccData.timeline[0].total);
+      setCovidData(data); // update covid data
+      setVaccRatio(vaccData.timeline[0].total); // update vacc data
     } catch (err) {
-      toast.error("Can't update data");
+      toast.error("Can't update data"); // display err notification
     }
   };
 
   const renderRecommendation = () => {
     if (vaccRatio / covidData.population > 0.5) {
       return (
-        <p style={{ fontSize: "24px", color: "#082C25", fontWeight: "bold" }}> 
+        <p className="recommendationPar">
           {covidData.country} has a big ratio of population fully vaccinated so
           it's recommended to visit {covidData.country}
         </p>
       );
     } else
       return (
-        // <p style="font-size:14px; color:#538b01; font-weight:bold; font-style:italic">
-        <p style={{ fontSize: "24px", color: "#082C25", fontWeight: "bold" }}>
+        <p className="recommendationPar">
           {covidData.country} has a low ratio of population fully vaccinated so
           it's not recommended to visit {covidData.country}.
         </p>
@@ -54,7 +54,7 @@ const useCovidData = () => {
               alt=""
             />
             <div className="detailsCases">
-              <a className="todayCases">todayCases:{covidData.todayCases}</a>
+              <span className="todayCases">todayCases:{covidData.todayCases}</span>
 
               <span className="todayDeaths">
                 todayDeaths:{covidData.todayDeaths}{" "}

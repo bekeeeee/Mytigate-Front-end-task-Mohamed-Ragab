@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";// allow notification
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
@@ -16,9 +16,9 @@ class App extends Component {
           <ToastContainer />
           <NavBar>
             <Switch>
-              <Route path="/Home" component={Home} />
-              <Route path="/Dashboard" component={Dashboard} />
-              <Redirect from="/" exact to="/Home" />
+              <Route path="/home" component={Home} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Redirect from="/" exact to="/home" />
               <Redirect to="/not-found" />
             </Switch>
           </NavBar>
