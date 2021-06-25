@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <div>
       <img src="MYTIGATE-Logo.svg" alt="" className="homeImg" />
-      <div> Hey from here</div>
     </div>
   );
 };
