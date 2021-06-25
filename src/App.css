@@ -1,38 +1,249 @@
-.App {
-  text-align: center;
+
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: rgb(8, 44, 73);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar span{
+  margin-top: 45px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "header-col1 header-col2";
+  grid-area: header;
+  background-color: whitesmoke;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header-col1 {
+  grid-area: header-col1;
+}
+
+.header-col2 {
+  grid-area: header-col2;
+  margin-top: 25px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.3fr 0.6fr 1fr 1.6fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "content-page-name"
+    "content-search"
+    "content-auto-complete"
+    "content-covid-deatails";
+  grid-area: content;
+}
+.content-page-name {
+  grid-area: content-page-name;
+  margin-left: 15px;
+}
+.content-search {
+  grid-area: content-search;
+  margin-left: 15px;
+}
+.content-auto-complete {
+  margin-left: 15px;
+
+  grid-area: content-auto-complete;
+  overflow-y: auto;
+  height: 110px;
+  width: 75%;
+}
+.content-auto-complete span {
+  cursor: pointer;
+  color: black;
+  display: block;
+}
+.content-auto-complete span:hover:not(.header) {
+  background-color: #eee;
+}
+
+.content-covid-deatails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "recommendation card-detail";
+  grid-area: content-covid-deatails;
+}
+
+.card-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "country-img"
+    "detailsCases";
+  grid-area: card-detail;
+  height: 155px;
+}
+
+.country-img {
+  grid-area: country-img;
+  width: 300px;
+  vertical-align: top;
+  background-color: aliceblue;
+  height: 140px;
+  margin-left: 85px;
+  border: 5px solid #555;
+}
+
+.detailsCases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "todayCases todayRecovered"
+    "todayDeaths activeCases";
+  grid-area: detailsCases;
+  height: 5px;
+}
+
+.todayCases {
+  grid-area: todayCases;
+  margin-left: 95px;
+  color: gray;
+}
+
+.todayDeaths {
+  grid-area: todayDeaths;
+  margin-left: 95px;
+  color: red;
+}
+
+.todayRecovered {
+  grid-area: todayRecovered;
+  color: green;
+}
+
+.activeCases {
+  grid-area: activeCases;
+  color: blue;
+}
+
+.recommendation {
+  grid-area: recommendation;
+  margin-left: 15px;
+  margin-top: 25px;
+  color: black;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "footer-col1 footer-col2"
+    "footer-col1 footer-col2";
+  grid-area: footer;
+  background-color: rgb(242, 242, 242);
+}
+
+.footer-col1 {
+  grid-area: footer-col1;
+  margin-left: 15px;
+}
+
+.footer-col2 {
+  grid-area: footer-col2;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: 0.4fr 2fr 0.4fr;
+  grid-auto-columns: 1fr;
+  gap: 2px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar content"
+    "sidebar footer";
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background-color: whitesmoke;
+  border: 5em;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+.sidebar img {
+  padding: 5px;
+  width: 150px;
+  vertical-align: top;
+  margin-bottom: 55px;
+  background-color: aliceblue;
+}
+
+.icon {
+  margin-right: 5px;
+  vertical-align: 1px;
+}
+
+span {
+  vertical-align: 5px;
+}
+
+.active {
   color: white;
+  /* font-size: 85px; */
+  margin-bottom: 55px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.notactive {
+  color: gray;
+  margin-bottom: 55px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer li {
+  list-style-type: none;
+}
+
+input[type="text"] {
+  width: 75%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  text-transform: capitalize;
+}
+
+.search-btn {
+  width: 8%;
+  height: 45px;
+  background-color: teal;
+  cursor: pointer;
+}
+
+.homeImg {
+  width: 800px;
+  height: 100px;
+  margin-top: 10px;
 }
