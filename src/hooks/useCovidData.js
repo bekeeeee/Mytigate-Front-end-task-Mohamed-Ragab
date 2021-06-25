@@ -54,17 +54,19 @@ const useCovidData = () => {
               alt=""
             />
             <div className="detailsCases">
-              <span className="todayCases">todayCases:{covidData.todayCases}</span>
+              <span className="todayCases">
+                Today Cases: {covidData.todayCases}
+              </span>
 
               <span className="todayDeaths">
-                todayDeaths:{covidData.todayDeaths}{" "}
+                Today Deaths: {covidData.todayDeaths}
               </span>
 
               <span className="todayRecovered">
-                todayRecovered:{covidData.todayRecovered}
+                Recovered: {covidData.todayRecovered}
               </span>
 
-              <span className="activeCases">active:{covidData.active}</span>
+              <span className="activeCases">Active: {covidData.active}</span>
             </div>
           </div>
           <div className="recommendation">{renderRecommendation()}</div>
